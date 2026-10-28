@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jkglxt.mapper.MenuMapper">
+    <resultMap id="MainMenuResultMap" type="com.jkglxt.bean.MainMenu">
+        <id property="id" column="mid"/>
+        <result property="title" column="mtitle"/>
+        <result property="path" column="mpath"/>
+        <collection property="subMenus" ofType="com.jkglxt.bean.SubMenu">
+            <id property="id" column="sid"/>
+            <result property="title" column="stitle"/>
+            <result property="path" column="spath"/>
+            <result property="mid" column="mid"/>
+        </collection>
+    </resultMap>
+    <select id="getMenus" resultMap="MainMenuResultMap">
+        select m.id as mid,m.title as mtitle,m.path as mpath,s.id as sid,s.title as stitle,s.path as spath,s.mid
+        from mainmenu m left join submenu s
+        on m.id = s.mid
+    </select>
+</mapper>

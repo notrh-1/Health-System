@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jkglxt.mapper.UserMapper">
+    <select id="login" resultType="com.jkglxt.bean.User">
+        select * from user where username = #{username} and password = #{password}
+    </select>
+    
+    <select id="getUserList" resultType="com.jkglxt.bean.User">
+        select * from user
+    </select>
+    
+    <insert id="addUser" parameterType="com.jkglxt.bean.User">
+        insert into user(username, password, email, role, state)
+        values(#{username}, #{password}, #{email}, #{role}, #{state})
+    </insert>
+    
+    <update id="updateUser" parameterType="com.jkglxt.bean.User">
+        update user
+        set username = #{username},
+            password = #{password},
+            email = #{email},
+            role = #{role},
+            state = #{state}
+        where id = #{id}
+    </update>
+    
+    <delete id="deleteUser">
+        delete from user where id = #{id}
+    </delete>
+    
+    <select id="getUserById" resultType="com.jkglxt.bean.User">
+        select * from user where id = #{id}
+    </select>
+    
+    <update id="updateRole">
+        update user set role = #{role} where id = #{id}
+    </update>
+    
+    <update id="updateState">
+        update user set state = #{state} where id = #{id}
+    </update>
+    
+    <select id="findByUsername" resultType="com.jkglxt.bean.User">
+        select * from user where username = #{username}
+    </select>
+</mapper>

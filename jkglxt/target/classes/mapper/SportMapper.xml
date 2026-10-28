@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jkglxt.mapper.SportMapper">
+    <select id="getSportList" resultType="com.jkglxt.bean.Sport">
+        select * from sport
+    </select>
+    
+    <select id="getSportById" resultType="com.jkglxt.bean.Sport">
+        select * from sport where id = #{id}
+    </select>
+    
+    <insert id="addSport" parameterType="com.jkglxt.bean.Sport">
+        insert into sport(name, calories, duration, description, image)
+        values(#{name}, #{calories}, #{duration}, #{description}, #{image})
+    </insert>
+    
+    <update id="updateSport" parameterType="com.jkglxt.bean.Sport">
+        update sport
+        set name = #{name},
+            calories = #{calories},
+            duration = #{duration},
+            description = #{description},
+            image = #{image}
+        where id = #{id}
+    </update>
+    
+    <delete id="deleteSport">
+        delete from sport where id = #{id}
+    </delete>
+</mapper>

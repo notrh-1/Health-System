@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jkglxt.mapper.MealPlanMapper">
+    <select id="getByUserId" resultType="com.jkglxt.bean.MealPlan">
+        select id, user_id as userId, meal_type as mealType, food_name as foodName, 
+               calories, protein, carbs, fat, meal_date as mealDate, create_time as createTime, calorie_record_id as calorieRecordId
+        from meal_plan 
+        where user_id = #{userId} 
+        order by meal_date desc, create_time desc
+    </select>
+    
+    <select id="getByUserIdAndDate" resultType="com.jkglxt.bean.MealPlan">
+        select id, user_id as userId, meal_type as mealType, food_name as foodName, 
+               calories, protein, carbs, fat, meal_date as mealDate, create_time as createTime, calorie_record_id as calorieRecordId
+        from meal_plan 
+        where user_id = #{userId} and meal_date = #{mealDate} 
+        order by 
+            CASE meal_type 
+                WHEN '早餐' THEN 1 
+                WHEN '午餐' THEN 2 
+                WHEN '晚餐' THEN 3 
+                WHEN '加餐' THEN 4 
+                ELSE 5 
+            END
+    </select>
+    
+    <select id="getById" resultType="com.jkglxt.bean.MealPlan">
+        select id, user_id as userId, meal_type as mealType, food_name as foodName, 
+               calories, protein, carbs, fat, meal_date as mealDate, create_time as createTime, calorie_record_id as calorieRecordId
+        from meal_plan 
+        where id = #{id}
+    </select>
+    
+    <insert id="add" parameterType="com.jkglxt.bean.MealPlan" useGeneratedKeys="true" keyProperty="id">
+        insert into meal_plan(user_id, meal_type, food_name, calories, protein, carbs, fat, meal_date, calorie_record_id)
+        values(#{userId}, #{mealType}, #{foodName}, #{calories}, #{protein}, #{carbs}, #{fat}, #{mealDate}, #{calorieRecordId})
+    </insert>
+    
+    <delete id="delete">
+        delete from meal_plan where id = #{id}
+    </delete>
+    
+    <update id="updateCalorieRecordId">
+        update meal_plan set calorie_record_id = #{calorieRecordId} where id = #{id}
+    </update>
+    
+    <select id="getNutritionStats" resultType="java.util.HashMap">
+        select 
+            sum(calories) as totalCalories,
+            sum(protein) as totalProtein,
+            sum(carbs) as totalCarbs,
+            sum(fat) as totalFat
+        from meal_plan
+        where user_id = #{userId} and meal_date = #{mealDate}
+    </select>
+</mapper>

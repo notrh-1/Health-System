@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jkglxt.mapper.SportKnowledgeMapper">
+    <select id="getList" resultType="com.jkglxt.bean.SportKnowledge">
+        select * from sport_knowledge order by create_time desc
+    </select>
+    
+    <select id="getById" resultType="com.jkglxt.bean.SportKnowledge">
+        select * from sport_knowledge where id = #{id}
+    </select>
+    
+    <select id="getByCategory" resultType="com.jkglxt.bean.SportKnowledge">
+        select * from sport_knowledge where category = #{category} order by create_time desc
+    </select>
+    
+    <insert id="add" parameterType="com.jkglxt.bean.SportKnowledge">
+        insert into sport_knowledge(title, category, content, image)
+        values(#{title}, #{category}, #{content}, #{image})
+    </insert>
+    
+    <update id="update" parameterType="com.jkglxt.bean.SportKnowledge">
+        update sport_knowledge
+        set title = #{title},
+            category = #{category},
+            content = #{content},
+            image = #{image}
+        where id = #{id}
+    </update>
+    
+    <delete id="delete">
+        delete from sport_knowledge where id = #{id}
+    </delete>
+</mapper>

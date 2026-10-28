@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jkglxt.mapper.ProjectMapper">
+    <insert id="addProject" parameterType="com.jkglxt.bean.Project">
+        INSERT INTO project (user_id, name, calories, duration, total_calories, record_date)
+        VALUES (#{userId}, #{name}, #{calories}, #{duration}, #{totalCalories}, #{recordDate})
+    </insert>
+
+    <delete id="deleteProject" parameterType="java.lang.Integer">
+        DELETE FROM project WHERE id = #{id}
+    </delete>
+
+    <select id="getByUserId" parameterType="java.lang.Integer" resultType="com.jkglxt.bean.Project">
+        SELECT * FROM project WHERE user_id = #{userId} ORDER BY record_date DESC
+    </select>
+</mapper>
