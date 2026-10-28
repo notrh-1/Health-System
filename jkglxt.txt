@@ -1,0 +1,365 @@
+/*
+Navicat MySQL Data Transfer
+
+Source Server         : localhost_3306
+Source Server Version : 80011
+Source Host           : localhost:3306
+Source Database       : jkglxt
+
+Target Server Type    : MYSQL
+Target Server Version : 80011
+File Encoding         : 65001
+
+Date: 2026-10-28 14:44:15
+*/
+
+SET FOREIGN_KEY_CHECKS=0;
+
+-- ----------------------------
+-- Table structure for calorie_record
+-- ----------------------------
+DROP TABLE IF EXISTS `calorie_record`;
+CREATE TABLE `calorie_record` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `type` varchar(20) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `calories` int(11) NOT NULL,
+  `record_date` date NOT NULL,
+  `create_time` datetime DEFAULT CURRENT_TIMESTAMP,
+  `meal_plan_id` int(11) DEFAULT NULL COMMENT '关联的配餐记录ID',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=49 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- ----------------------------
+-- Records of calorie_record
+-- ----------------------------
+INSERT INTO `calorie_record` VALUES ('7', '2', '摄入', '早餐-包子豆浆', '520', '2026-04-15', '2026-04-15 04:14:00', null);
+INSERT INTO `calorie_record` VALUES ('8', '2', '摄入', '午餐-面条', '580', '2026-04-15', '2026-04-15 04:14:00', null);
+INSERT INTO `calorie_record` VALUES ('9', '2', '消耗', '瑜伽', '200', '2026-04-15', '2026-04-15 04:14:00', null);
+INSERT INTO `calorie_record` VALUES ('10', '2', '消耗', '快走', '250', '2026-04-15', '2026-04-15 04:14:00', null);
+INSERT INTO `calorie_record` VALUES ('14', '1', '摄入', '早餐 - 包子', '227', '2026-04-14', '2026-04-15 05:20:03', '25');
+INSERT INTO `calorie_record` VALUES ('15', '1', '摄入', '早餐 - 馒头', '223', '2026-04-14', '2026-04-15 05:20:07', '27');
+INSERT INTO `calorie_record` VALUES ('16', '1', '消耗', '游泳', '500', '2026-04-14', '2026-04-15 05:25:48', null);
+INSERT INTO `calorie_record` VALUES ('20', '1', '摄入', '早餐 - 小米粥', '46', '2026-04-15', '2026-04-15 12:58:25', '28');
+INSERT INTO `calorie_record` VALUES ('21', '1', '摄入', '早餐 - 包子', '227', '2026-04-15', '2026-04-15 12:58:27', '29');
+INSERT INTO `calorie_record` VALUES ('22', '1', '消耗', '跑步', '500', '2026-04-15', '2026-04-15 13:28:49', null);
+INSERT INTO `calorie_record` VALUES ('23', '1', '消耗', '跑步', '100', '2026-04-15', '2026-04-15 14:11:08', null);
+INSERT INTO `calorie_record` VALUES ('24', '1', '消耗', '游泳', '200', '2026-04-15', '2026-04-15 14:11:21', null);
+INSERT INTO `calorie_record` VALUES ('25', '10', '消耗', '跑步', '200', '2026-04-15', '2026-04-15 14:12:48', null);
+INSERT INTO `calorie_record` VALUES ('26', '10', '摄入', '早餐 - 小米粥', '46', '2026-04-15', '2026-04-15 14:12:57', '30');
+INSERT INTO `calorie_record` VALUES ('27', '10', '摄入', '早餐 - 饺子', '240', '2026-04-15', '2026-04-15 14:12:58', '31');
+INSERT INTO `calorie_record` VALUES ('28', '1', '摄入', '午餐 - 鱼香肉丝', '220', '2026-04-15', '2026-04-15 14:15:43', '33');
+INSERT INTO `calorie_record` VALUES ('29', '1', '摄入', '午餐 - 白米饭', '116', '2026-04-15', '2026-04-15 14:15:44', '32');
+INSERT INTO `calorie_record` VALUES ('30', '1', '摄入', '蓝莓', '57', '2026-04-15', '2026-04-15 14:16:14', '34');
+INSERT INTO `calorie_record` VALUES ('31', '1', '摄入', '牛奶', '54', '2026-04-15', '2026-04-15 14:16:15', '35');
+INSERT INTO `calorie_record` VALUES ('32', '10', '消耗', '跑步', '100', '2026-04-16', '2026-04-16 16:26:08', null);
+INSERT INTO `calorie_record` VALUES ('37', '1', '摄入', '白米饭', '116', '2026-04-18', '2026-04-18 14:10:33', '38');
+INSERT INTO `calorie_record` VALUES ('38', '1', '摄入', '红烧肉', '520', '2026-04-18', '2026-04-18 14:10:33', '39');
+INSERT INTO `calorie_record` VALUES ('39', '1', '摄入', '西红柿炒蛋', '87', '2026-04-18', '2026-04-18 14:10:33', '40');
+INSERT INTO `calorie_record` VALUES ('41', '1', '消耗', '跑步', '200', '2026-04-18', '2026-04-18 14:19:37', null);
+INSERT INTO `calorie_record` VALUES ('43', '1', '摄入', '馒头', '223', '2026-05-08', '2026-05-08 15:26:24', '41');
+INSERT INTO `calorie_record` VALUES ('44', '1', '摄入', '饺子', '240', '2026-05-08', '2026-05-08 15:26:24', '42');
+INSERT INTO `calorie_record` VALUES ('45', '1', '消耗', '跑步', '300', '2026-05-08', '2026-05-08 15:26:35', null);
+INSERT INTO `calorie_record` VALUES ('46', '10', '摄入', '包子', '227', '2026-05-08', '2026-05-08 15:29:47', '43');
+INSERT INTO `calorie_record` VALUES ('47', '1', '摄入', '包子', '227', '2026-05-10', '2026-05-10 10:09:10', '44');
+INSERT INTO `calorie_record` VALUES ('48', '1', '消耗', '跑步', '300', '2026-05-10', '2026-05-10 10:09:27', null);
+
+-- ----------------------------
+-- Table structure for chat_message
+-- ----------------------------
+DROP TABLE IF EXISTS `chat_message`;
+CREATE TABLE `chat_message` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `content` text NOT NULL,
+  `create_time` datetime DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  KEY `user_id` (`user_id`),
+  CONSTRAINT `chat_message_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- ----------------------------
+-- Records of chat_message
+-- ----------------------------
+INSERT INTO `chat_message` VALUES ('16', '1', 'admin', '测试', '2026-04-18 14:11:12');
+INSERT INTO `chat_message` VALUES ('17', '10', '123456', '收到', '2026-04-18 14:11:26');
+
+-- ----------------------------
+-- Table structure for food_library
+-- ----------------------------
+DROP TABLE IF EXISTS `food_library`;
+CREATE TABLE `food_library` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `food_name` varchar(100) NOT NULL,
+  `food_type` varchar(50) NOT NULL,
+  `calories` int(11) NOT NULL DEFAULT '0',
+  `protein` decimal(10,1) NOT NULL DEFAULT '0.0',
+  `carbs` decimal(10,1) NOT NULL DEFAULT '0.0',
+  `fat` decimal(10,1) NOT NULL DEFAULT '0.0',
+  `create_time` datetime DEFAULT CURRENT_TIMESTAMP,
+  `update_time` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- ----------------------------
+-- Records of food_library
+-- ----------------------------
+INSERT INTO `food_library` VALUES ('1', '白米饭', '主食', '116', '2.6', '25.6', '0.3', '2026-04-15 04:45:16', '2026-05-08 15:25:49');
+INSERT INTO `food_library` VALUES ('2', '馒头', '主食', '223', '7.0', '47.0', '1.1', '2026-04-15 04:45:16', '2026-04-15 04:45:16');
+INSERT INTO `food_library` VALUES ('3', '面条', '主食', '284', '8.3', '56.8', '2.3', '2026-04-15 04:45:16', '2026-04-15 04:45:16');
+INSERT INTO `food_library` VALUES ('4', '包子', '主食', '227', '7.6', '36.6', '5.8', '2026-04-15 04:45:16', '2026-04-15 04:45:16');
+INSERT INTO `food_library` VALUES ('5', '饺子', '主食', '240', '9.5', '31.0', '8.0', '2026-04-15 04:45:16', '2026-04-15 04:45:16');
+INSERT INTO `food_library` VALUES ('6', '小米粥', '主食', '46', '1.4', '8.4', '0.7', '2026-04-15 04:45:16', '2026-04-15 04:45:16');
+INSERT INTO `food_library` VALUES ('7', '燕麦粥', '主食', '67', '2.4', '12.0', '1.4', '2026-04-15 04:45:16', '2026-04-15 04:45:16');
+INSERT INTO `food_library` VALUES ('8', '红烧肉', '菜品', '520', '18.0', '8.0', '48.0', '2026-04-15 04:45:29', '2026-04-15 04:45:29');
+INSERT INTO `food_library` VALUES ('9', '鱼香肉丝', '菜品', '220', '14.0', '16.0', '12.0', '2026-04-15 04:45:29', '2026-04-15 04:45:29');
+INSERT INTO `food_library` VALUES ('10', '宫保鸡丁', '菜品', '190', '16.0', '12.0', '10.0', '2026-04-15 04:45:29', '2026-04-15 04:45:29');
+INSERT INTO `food_library` VALUES ('11', '糖醋排骨', '菜品', '350', '18.0', '20.0', '24.0', '2026-04-15 04:45:29', '2026-04-15 04:45:29');
+INSERT INTO `food_library` VALUES ('12', '清蒸鱼', '菜品', '110', '20.0', '0.0', '3.0', '2026-04-15 04:45:29', '2026-04-15 04:45:29');
+INSERT INTO `food_library` VALUES ('13', '白灼虾', '菜品', '99', '20.9', '0.2', '1.7', '2026-04-15 04:45:29', '2026-04-15 04:45:29');
+INSERT INTO `food_library` VALUES ('14', '西红柿炒蛋', '菜品', '87', '3.5', '4.0', '6.0', '2026-04-15 04:45:29', '2026-04-15 04:45:29');
+INSERT INTO `food_library` VALUES ('15', '土豆烧牛肉', '菜品', '190', '15.0', '14.0', '8.0', '2026-04-15 04:45:29', '2026-04-15 04:45:29');
+INSERT INTO `food_library` VALUES ('16', '清炒时蔬', '菜品', '40', '2.0', '6.0', '1.0', '2026-04-15 04:45:29', '2026-04-15 04:45:29');
+INSERT INTO `food_library` VALUES ('17', '麻婆豆腐', '菜品', '140', '8.0', '8.0', '9.0', '2026-04-15 04:45:29', '2026-04-15 04:45:29');
+INSERT INTO `food_library` VALUES ('18', '蒜蓉西兰花', '菜品', '55', '4.0', '6.0', '2.0', '2026-04-15 04:45:29', '2026-04-15 04:45:29');
+INSERT INTO `food_library` VALUES ('19', '干煸四季豆', '菜品', '120', '4.0', '10.0', '7.0', '2026-04-15 04:45:29', '2026-04-15 04:45:29');
+INSERT INTO `food_library` VALUES ('20', '紫菜蛋花汤', '汤品', '35', '2.0', '3.0', '1.5', '2026-04-15 04:45:40', '2026-04-15 04:45:40');
+INSERT INTO `food_library` VALUES ('21', '番茄蛋汤', '汤品', '42', '2.2', '4.5', '1.8', '2026-04-15 04:45:40', '2026-04-15 04:45:40');
+INSERT INTO `food_library` VALUES ('22', '冬瓜汤', '汤品', '15', '0.4', '2.8', '0.2', '2026-04-15 04:45:40', '2026-04-15 04:45:40');
+INSERT INTO `food_library` VALUES ('23', '玉米排骨汤', '汤品', '85', '6.0', '5.0', '4.0', '2026-04-15 04:45:40', '2026-04-15 04:45:40');
+INSERT INTO `food_library` VALUES ('24', '鸡汤', '汤品', '100', '12.0', '2.0', '5.0', '2026-04-15 04:45:40', '2026-04-15 04:45:40');
+INSERT INTO `food_library` VALUES ('25', '苹果', '甜点', '52', '0.2', '13.8', '0.2', '2026-04-15 04:45:53', '2026-04-15 04:45:53');
+INSERT INTO `food_library` VALUES ('26', '香蕉', '甜点', '89', '1.1', '22.8', '0.3', '2026-04-15 04:45:53', '2026-04-15 04:45:53');
+INSERT INTO `food_library` VALUES ('27', '酸奶', '甜点', '72', '3.2', '9.3', '2.7', '2026-04-15 04:45:53', '2026-04-15 04:45:53');
+INSERT INTO `food_library` VALUES ('28', '牛奶', '甜点', '54', '3.0', '3.4', '3.2', '2026-04-15 04:45:53', '2026-04-15 04:45:53');
+INSERT INTO `food_library` VALUES ('29', '豆浆', '甜点', '31', '3.0', '1.2', '1.6', '2026-04-15 04:45:53', '2026-04-15 04:45:53');
+INSERT INTO `food_library` VALUES ('30', '蓝莓', '甜点', '57', '0.7', '14.5', '0.3', '2026-04-15 04:45:53', '2026-04-15 04:45:53');
+INSERT INTO `food_library` VALUES ('31', '草莓', '甜点', '32', '0.7', '7.7', '0.3', '2026-04-15 04:45:53', '2026-04-15 04:45:53');
+INSERT INTO `food_library` VALUES ('32', '橙子', '甜点', '47', '0.8', '11.8', '0.1', '2026-04-15 04:45:53', '2026-04-15 04:45:53');
+INSERT INTO `food_library` VALUES ('33', '核桃', '甜点', '646', '14.9', '9.6', '65.2', '2026-04-15 04:45:53', '2026-04-15 04:45:53');
+INSERT INTO `food_library` VALUES ('34', '花生', '甜点', '567', '25.8', '16.1', '49.2', '2026-04-15 04:45:53', '2026-04-15 04:45:53');
+
+-- ----------------------------
+-- Table structure for mainmenu
+-- ----------------------------
+DROP TABLE IF EXISTS `mainmenu`;
+CREATE TABLE `mainmenu` (
+  `id` int(50) NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) NOT NULL,
+  `path` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=201 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- ----------------------------
+-- Records of mainmenu
+-- ----------------------------
+INSERT INTO `mainmenu` VALUES ('100', '权限管理', '/admin');
+INSERT INTO `mainmenu` VALUES ('200', '运动平台', '/health');
+
+-- ----------------------------
+-- Table structure for meal_plan
+-- ----------------------------
+DROP TABLE IF EXISTS `meal_plan`;
+CREATE TABLE `meal_plan` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `meal_type` varchar(20) NOT NULL,
+  `food_name` varchar(100) NOT NULL,
+  `calories` int(11) NOT NULL,
+  `protein` decimal(10,2) DEFAULT '0.00',
+  `carbs` decimal(10,2) DEFAULT '0.00',
+  `fat` decimal(10,2) DEFAULT '0.00',
+  `meal_date` date NOT NULL,
+  `create_time` datetime DEFAULT CURRENT_TIMESTAMP,
+  `calorie_record_id` int(11) DEFAULT NULL COMMENT '关联的卡路里记录ID',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- ----------------------------
+-- Records of meal_plan
+-- ----------------------------
+INSERT INTO `meal_plan` VALUES ('5', '2', '早餐', '燕麦粥+香蕉', '380', '12.00', '68.00', '6.00', '2026-04-15', '2026-04-15 04:24:52', null);
+INSERT INTO `meal_plan` VALUES ('6', '2', '午餐', '牛肉面+青菜', '620', '28.00', '75.00', '15.00', '2026-04-15', '2026-04-15 04:24:52', null);
+INSERT INTO `meal_plan` VALUES ('7', '2', '晚餐', '豆腐汤+米饭', '350', '18.00', '52.00', '8.00', '2026-04-15', '2026-04-15 04:24:52', null);
+INSERT INTO `meal_plan` VALUES ('17', '2', '早餐', '鸡蛋灌饼+粥', '490', '16.00', '65.00', '15.00', '2026-04-15', '2026-04-15 04:40:11', null);
+INSERT INTO `meal_plan` VALUES ('18', '2', '早餐', '手抓饼+豆浆', '560', '14.00', '72.00', '18.00', '2026-04-15', '2026-04-15 04:40:11', null);
+INSERT INTO `meal_plan` VALUES ('19', '2', '午餐', '红烧肉+米饭', '720', '25.00', '68.00', '32.00', '2026-04-15', '2026-04-15 04:40:11', null);
+INSERT INTO `meal_plan` VALUES ('20', '2', '午餐', '糖醋排骨+米饭', '680', '28.00', '65.00', '28.00', '2026-04-15', '2026-04-15 04:40:11', null);
+INSERT INTO `meal_plan` VALUES ('21', '2', '晚餐', '西红柿炒蛋+米饭', '420', '18.00', '58.00', '15.00', '2026-04-15', '2026-04-15 04:40:11', null);
+INSERT INTO `meal_plan` VALUES ('22', '2', '晚餐', '土豆烧牛肉+米饭', '580', '22.00', '62.00', '22.00', '2026-04-15', '2026-04-15 04:40:11', null);
+INSERT INTO `meal_plan` VALUES ('23', '2', '加餐', '牛奶+燕麦', '180', '12.00', '22.00', '6.00', '2026-04-15', '2026-04-15 04:40:11', null);
+INSERT INTO `meal_plan` VALUES ('24', '2', '加餐', '苹果+核桃', '220', '5.00', '25.00', '10.00', '2026-04-15', '2026-04-15 04:40:11', null);
+INSERT INTO `meal_plan` VALUES ('25', '1', '早餐', '包子', '227', '7.60', '36.60', '5.80', '2026-04-14', '2026-04-15 05:10:21', '14');
+INSERT INTO `meal_plan` VALUES ('27', '1', '早餐', '馒头', '223', '7.00', '47.00', '1.10', '2026-04-14', '2026-04-15 05:19:55', '15');
+INSERT INTO `meal_plan` VALUES ('28', '1', '早餐', '小米粥', '46', '1.40', '8.40', '0.70', '2026-04-15', '2026-04-15 12:58:21', '20');
+INSERT INTO `meal_plan` VALUES ('29', '1', '早餐', '包子', '227', '7.60', '36.60', '5.80', '2026-04-15', '2026-04-15 12:58:21', '21');
+INSERT INTO `meal_plan` VALUES ('30', '10', '早餐', '小米粥', '46', '1.40', '8.40', '0.70', '2026-04-15', '2026-04-15 14:12:32', '26');
+INSERT INTO `meal_plan` VALUES ('31', '10', '早餐', '饺子', '240', '9.50', '31.00', '8.00', '2026-04-15', '2026-04-15 14:12:32', '27');
+INSERT INTO `meal_plan` VALUES ('32', '1', '午餐', '白米饭', '116', '2.60', '25.60', '0.30', '2026-04-15', '2026-04-15 14:15:28', '29');
+INSERT INTO `meal_plan` VALUES ('33', '1', '午餐', '鱼香肉丝', '220', '14.00', '16.00', '12.00', '2026-04-15', '2026-04-15 14:15:28', '28');
+INSERT INTO `meal_plan` VALUES ('34', '1', '晚餐', '蓝莓', '57', '0.70', '14.50', '0.30', '2026-04-15', '2026-04-15 14:16:14', '30');
+INSERT INTO `meal_plan` VALUES ('35', '1', '晚餐', '牛奶', '54', '3.00', '3.40', '3.20', '2026-04-15', '2026-04-15 14:16:15', '31');
+INSERT INTO `meal_plan` VALUES ('38', '1', '午餐', '白米饭', '116', '2.60', '25.60', '0.30', '2026-04-18', '2026-04-18 14:10:33', '37');
+INSERT INTO `meal_plan` VALUES ('39', '1', '午餐', '红烧肉', '520', '18.00', '8.00', '48.00', '2026-04-18', '2026-04-18 14:10:33', '38');
+INSERT INTO `meal_plan` VALUES ('40', '1', '午餐', '西红柿炒蛋', '87', '3.50', '4.00', '6.00', '2026-04-18', '2026-04-18 14:10:33', '39');
+INSERT INTO `meal_plan` VALUES ('41', '1', '早餐', '馒头', '223', '7.00', '47.00', '1.10', '2026-05-08', '2026-05-08 15:26:24', '43');
+INSERT INTO `meal_plan` VALUES ('42', '1', '早餐', '饺子', '240', '9.50', '31.00', '8.00', '2026-05-08', '2026-05-08 15:26:24', '44');
+INSERT INTO `meal_plan` VALUES ('43', '10', '早餐', '包子', '227', '7.60', '36.60', '5.80', '2026-05-08', '2026-05-08 15:29:47', '46');
+INSERT INTO `meal_plan` VALUES ('44', '1', '早餐', '包子', '227', '7.60', '36.60', '5.80', '2026-05-10', '2026-05-10 10:09:10', '47');
+
+-- ----------------------------
+-- Table structure for project
+-- ----------------------------
+DROP TABLE IF EXISTS `project`;
+CREATE TABLE `project` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `calories` int(11) DEFAULT '0',
+  `duration` int(11) DEFAULT '0',
+  `total_calories` int(11) DEFAULT '0',
+  `record_date` date DEFAULT NULL,
+  `create_time` datetime DEFAULT CURRENT_TIMESTAMP,
+  `update_time` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- ----------------------------
+-- Records of project
+-- ----------------------------
+INSERT INTO `project` VALUES ('10', '1', '跑步', '0', '0', '300', '2026-05-08', '2026-05-08 15:26:35', '2026-05-08 15:26:35');
+INSERT INTO `project` VALUES ('11', '1', '跑步', '0', '0', '300', '2026-05-10', '2026-05-10 10:09:27', '2026-05-10 10:09:27');
+
+-- ----------------------------
+-- Table structure for sport
+-- ----------------------------
+DROP TABLE IF EXISTS `sport`;
+CREATE TABLE `sport` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) NOT NULL,
+  `calories` int(11) NOT NULL,
+  `duration` int(11) NOT NULL,
+  `description` varchar(500) DEFAULT NULL,
+  `image` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- ----------------------------
+-- Records of sport
+-- ----------------------------
+INSERT INTO `sport` VALUES ('1', '跑步', '600', '45', '户外跑步，有氧运动，适合减脂', null);
+INSERT INTO `sport` VALUES ('2', '游泳', '550', '60', '全身运动，对关节友好', null);
+INSERT INTO `sport` VALUES ('3', '瑜伽', '300', '60', '放松身心，提高柔韧性', null);
+INSERT INTO `sport` VALUES ('4', '篮球', '500', '60', '团队运动，提高协调性', null);
+INSERT INTO `sport` VALUES ('5', '羽毛球', '400', '60', '室内运动，锻炼反应能力', null);
+INSERT INTO `sport` VALUES ('6', '骑行', '500', '90', '户外骑行，锻炼腿部肌肉', null);
+INSERT INTO `sport` VALUES ('7', '健身操', '400', '45', '有氧运动，适合初学者', null);
+INSERT INTO `sport` VALUES ('8', '跳绳', '700', '20', '高效燃脂，简单易行', null);
+INSERT INTO `sport` VALUES ('11', '滑雪', '700', '60', '高强度运动，释放多巴胺', null);
+
+-- ----------------------------
+-- Table structure for sport_knowledge
+-- ----------------------------
+DROP TABLE IF EXISTS `sport_knowledge`;
+CREATE TABLE `sport_knowledge` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(200) NOT NULL,
+  `category` varchar(50) NOT NULL,
+  `content` text NOT NULL,
+  `image` varchar(255) DEFAULT NULL,
+  `create_time` datetime DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- ----------------------------
+-- Records of sport_knowledge
+-- ----------------------------
+INSERT INTO `sport_knowledge` VALUES ('1', '跑步的正确姿势', '跑步', '跑步时保持身体直立，目视前方，肩膀放松，手臂自然摆动。步幅不宜过大，以前脚掌或中足着地为佳。呼吸要均匀，建议两步一呼两步一吸。初学者应从慢跑开始，逐渐增加强度和时间。', null, '2026-04-15 03:53:04');
+INSERT INTO `sport_knowledge` VALUES ('2', '游泳入门指南', '游泳', '游泳前要做好热身运动，避免抽筋。初学者建议从蛙泳开始学习，掌握基本呼吸技巧。游泳时注意保持身体平衡，动作要协调。每次游泳时间控制在30-60分钟为宜，游泳后要及时补充水分。', null, '2026-04-15 03:53:04');
+INSERT INTO `sport_knowledge` VALUES ('3', '瑜伽练习要点', '瑜伽', '瑜伽练习要在空腹或饭后2小时进行。选择安静、通风良好的环境。练习时注意呼吸配合，动作要缓慢柔和。初学者建议从基础体式开始，循序渐进。每周练习3-4次，每次45-60分钟效果最佳。', null, '2026-04-15 03:53:04');
+INSERT INTO `sport_knowledge` VALUES ('4', '篮球基础训练', '篮球', '篮球运动需要掌握运球、传球、投篮三大基本技能。运球时用手腕和手指控制球，不要用手掌拍球。传球要准确有力，投篮姿势要标准。建议每周训练3次以上，注重体能和技巧的平衡发展。', null, '2026-04-15 03:53:04');
+INSERT INTO `sport_knowledge` VALUES ('5', '羽毛球技巧提升', '羽毛球', '羽毛球运动需要良好的反应速度和灵活性。握拍方式要正确，击球时手腕发力。步法训练很重要，要做到快速移动、及时回位。双打配合要默契，注意场上站位和战术配合。', null, '2026-04-15 03:53:04');
+INSERT INTO `sport_knowledge` VALUES ('6', '骑行安全须知', '骑行', '骑行前检查车辆状况，确保刹车、轮胎正常。佩戴头盔等安全装备，遵守交通规则。骑行姿势要正确，避免长时间保持同一姿势。注意补充水分和能量，长途骑行要合理安排休息。', null, '2026-04-15 03:53:04');
+INSERT INTO `sport_knowledge` VALUES ('7', '健身操入门', '健身操', '健身操是有氧运动的一种，适合各年龄段人群。动作要跟随音乐节奏，注意呼吸配合。初学者选择低强度课程，逐渐增加难度。每次练习40-60分钟，每周3-4次，可有效提高心肺功能。', null, '2026-04-15 03:53:04');
+INSERT INTO `sport_knowledge` VALUES ('8', '跳绳训练方法', '跳绳', '跳绳是高效的燃脂运动，每分钟可消耗10-16卡路里。初学者从基础跳开始，逐渐学习花样跳法。跳绳时前脚掌着地，膝盖微屈。建议每次跳绳15-30分钟，注意选择合适的跳绳长度。', null, '2026-04-15 03:53:04');
+INSERT INTO `sport_knowledge` VALUES ('17', '测试', '跑步', '这是一个测试', '', '2026-04-18 14:01:54');
+
+-- ----------------------------
+-- Table structure for submenu
+-- ----------------------------
+DROP TABLE IF EXISTS `submenu`;
+CREATE TABLE `submenu` (
+  `id` int(50) NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) NOT NULL,
+  `path` varchar(255) NOT NULL,
+  `mid` int(50) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `mid` (`mid`),
+  CONSTRAINT `submenu_ibfk_1` FOREIGN KEY (`mid`) REFERENCES `mainmenu` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=206 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of submenu
+-- ----------------------------
+INSERT INTO `submenu` VALUES ('101', '用户列表', '/user', '100');
+INSERT INTO `submenu` VALUES ('102', '修改权限', '/rights', '100');
+INSERT INTO `submenu` VALUES ('104', '聊天区', '/goods', '100');
+INSERT INTO `submenu` VALUES ('105', '个人中心', '/profile', '100');
+INSERT INTO `submenu` VALUES ('201', '运动科普', '/knowledge', '200');
+INSERT INTO `submenu` VALUES ('202', '卡路里', '/calories', '200');
+INSERT INTO `submenu` VALUES ('203', '营养配餐', '/food', '200');
+INSERT INTO `submenu` VALUES ('205', '运动项目', '/project', '200');
+
+-- ----------------------------
+-- Table structure for user
+-- ----------------------------
+DROP TABLE IF EXISTS `user`;
+CREATE TABLE `user` (
+  `id` int(24) NOT NULL AUTO_INCREMENT,
+  `username` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `role` varchar(255) NOT NULL,
+  `state` tinyint(255) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- ----------------------------
+-- Records of user
+-- ----------------------------
+INSERT INTO `user` VALUES ('1', 'admin', 'e10adc3949ba59abbe56e057f20f883e', '123@qq.com', 'admin', '1');
+INSERT INTO `user` VALUES ('2', 'naughty', '21218cca77804d2ba1922e3515170505', '456@qq.com', 'user', '0');
+INSERT INTO `user` VALUES ('3', 'flysky01', '4ec8797886e521c62442618294498339', 'qwe@qq.com', 'user', '0');
+INSERT INTO `user` VALUES ('4', 'anglybirds', 'e0ce98d7a719c2f891d21b720d3c219a', 'aaaa@163.com', 'user', '0');
+INSERT INTO `user` VALUES ('7', 'admin003', '96e79218965eb72c92a549dd5a330112', 'c@qq.com', 'user', '0');
+INSERT INTO `user` VALUES ('8', 'admin005', 'e10adc3949ba59abbe56e057f20f883e', 'cxz@qq.com', 'user', '0');
+INSERT INTO `user` VALUES ('9', 'admin007', 'e10adc3949ba59abbe56e057f20f883e', 'rty@qq.com', 'user', '0');
+INSERT INTO `user` VALUES ('10', '123456', 'e10adc3949ba59abbe56e057f20f883e', '111@qq.com', 'user', '1');
+
+-- ----------------------------
+-- Table structure for user_profile
+-- ----------------------------
+DROP TABLE IF EXISTS `user_profile`;
+CREATE TABLE `user_profile` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `real_name` varchar(50) DEFAULT NULL,
+  `age` int(11) DEFAULT NULL,
+  `gender` varchar(10) DEFAULT NULL,
+  `height` decimal(5,2) DEFAULT NULL,
+  `weight` decimal(5,2) DEFAULT NULL,
+  `avatar` varchar(255) DEFAULT NULL,
+  `create_time` datetime DEFAULT CURRENT_TIMESTAMP,
+  `update_time` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `user_id` (`user_id`),
+  CONSTRAINT `user_profile_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- ----------------------------
+-- Records of user_profile
+-- ----------------------------
+INSERT INTO `user_profile` VALUES ('1', '1', '22', '22', '男', '175.00', '70.00', 'http://localhost:9000/uploads/avatars/f9815681-529c-455a-9f63-c19e93d21283.png', '2026-04-15 06:18:59', '2026-05-08 15:26:53');
+INSERT INTO `user_profile` VALUES ('2', '10', '', null, '', null, null, 'http://localhost:9000/uploads/avatars/0912fb08-3f21-4e31-bf43-eed15b7e3592.png', '2026-04-15 13:32:53', '2026-04-15 13:32:53');
